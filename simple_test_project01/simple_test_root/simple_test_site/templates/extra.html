@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Basic Site Template</title>
+	</head>
+	<body>
+		<h1>{{ title }}</h1>
+        {% autoescape off %}
+		<p>{{ content }}</p>
+        {% endautoescape %}
+	</body>
+</html>

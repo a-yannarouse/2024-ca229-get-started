@@ -1,0 +1,21 @@
+{% block main_content %}
+	<h1>Welcome to the {{ title }} page!</h1>
+	<p>We're now using the page template. The page slugs on this site are:</p>
+	{% for page in page_list %}
+		<li>{% url 'index' %}{{ page.permalink|cut:'/' }} <strong>vs</strong> {{ page.permalink}}</li>
+	{% endfor %}
+	{% autoescape off %}
+	<p>{{ content }}</p>
+	<p>Our Magic Number is {{ nums }}</p>
+	<p>The numbers from {{ nums|first }} to {{ nums|last }} are:
+		{% for i in nums %}
+		{{ i }},
+		{% endfor %}
+	</p>
+	<p>Last updated: {{ last_updated|date:"D d M Y" }}</p>
+	<p>Today is {{ today.day }} {{ today|date:'M' }} {{ today.year }}</p>
+	{% endautoescape %}
+	{% autoescape off %}
+    <img src="{{ pic.url }}"/>
+    {% endautoescape %}
+{% endblock main_content %}
